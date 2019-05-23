@@ -36,6 +36,10 @@ export default {
     height: {
       type: [String, Number],
       default: () => '100%'
+    },
+    styles: {
+      type: Array,
+      default: []
     }
   },
   computed: {
@@ -66,7 +70,8 @@ export default {
       this.$mapObject = new google.maps.Map(mapElement, {
         zoom: this.initialZoom,
         center: { lat: this.lat, lng: this.lng },
-        mapTypeId: this.mapType
+        mapTypeId: this.mapType,
+        styles: this.styles
       });
 
       this.$heatmap = new google.maps.visualization.HeatmapLayer({
